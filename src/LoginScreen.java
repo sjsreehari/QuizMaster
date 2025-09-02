@@ -4,12 +4,12 @@ import java.awt.*;
 public class LoginScreen extends JPanel {
     public LoginScreen(MainApp app) {
         setLayout(new BorderLayout());
-        setBackground(new Color(36, 41, 47));
+        setBackground(new Color(248, 249, 251));
 
         // Logo/banner
         JLabel logo = new JLabel("Welcome", SwingConstants.CENTER);
         logo.setFont(new Font("Segoe UI", Font.BOLD, 30));
-        logo.setForeground(Color.WHITE);
+        logo.setForeground(new Color(32, 33, 36));
         logo.setBorder(BorderFactory.createEmptyBorder(30,0,10,0));
         add(logo, BorderLayout.NORTH);
 
@@ -19,11 +19,11 @@ public class LoginScreen extends JPanel {
 
         RoundedPanel formPanel = new RoundedPanel();
         formPanel.setLayout(new BoxLayout(formPanel, BoxLayout.Y_AXIS));
-        formPanel.setBackgroundColor(new Color(255,255,255,225));
-        formPanel.setPreferredSize(new Dimension(420, 260));
+        formPanel.setBackgroundColor(Color.WHITE);
+        formPanel.setPreferredSize(new Dimension(420, 240));
 
         JLabel userLabel = new JLabel("Username:");
-        userLabel.setForeground(Color.WHITE);
+        userLabel.setForeground(new Color(32, 33, 36));
         userLabel.setFont(new Font("Segoe UI", Font.BOLD, 16));
         JTextField userField = new JTextField(15);
         userField.setFont(new Font("Segoe UI", Font.PLAIN, 16));
@@ -31,7 +31,7 @@ public class LoginScreen extends JPanel {
         userField.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         JLabel passLabel = new JLabel("Password:");
-        passLabel.setForeground(Color.WHITE);
+        passLabel.setForeground(new Color(32, 33, 36));
         passLabel.setFont(new Font("Segoe UI", Font.BOLD, 16));
         JPasswordField passField = new JPasswordField(15);
         passField.setFont(new Font("Segoe UI", Font.PLAIN, 16));

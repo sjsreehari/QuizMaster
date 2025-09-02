@@ -11,12 +11,12 @@ public class ResultScreen extends JPanel {
     public ResultScreen(MainApp app) {
         this.app = app;
         setLayout(new BorderLayout());
-        setBackground(new Color(36, 41, 47));
+        setBackground(new Color(248, 249, 251));
 
         // Title
         JLabel title = new JLabel("Quiz Result", SwingConstants.CENTER);
         title.setFont(new Font("Segoe UI", Font.BOLD, 28));
-        title.setForeground(Color.WHITE);
+        title.setForeground(new Color(32, 33, 36));
         title.setBorder(BorderFactory.createEmptyBorder(30,0,10,0));
         add(title, BorderLayout.NORTH);
 
@@ -27,7 +27,7 @@ public class ResultScreen extends JPanel {
 
         RoundedPanel centerPanel = new RoundedPanel();
         centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
-        centerPanel.setPreferredSize(new Dimension(520, 300));
+        centerPanel.setPreferredSize(new Dimension(520, 280));
 
         emojiLabel = new JLabel();
         emojiLabel.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 48));
@@ -37,28 +37,28 @@ public class ResultScreen extends JPanel {
 
         scoreLabel = new JLabel();
         scoreLabel.setFont(new Font("Segoe UI", Font.BOLD, 22));
-        scoreLabel.setForeground(Color.WHITE);
+        scoreLabel.setForeground(new Color(32, 33, 36));
         scoreLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         centerPanel.add(scoreLabel);
         centerPanel.add(Box.createVerticalStrut(10));
 
         correctLabel = new JLabel();
         correctLabel.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-        correctLabel.setForeground(new Color(46, 204, 113));
+        correctLabel.setForeground(new Color(56, 142, 60));
         correctLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         centerPanel.add(correctLabel);
         centerPanel.add(Box.createVerticalStrut(5));
 
         wrongLabel = new JLabel();
         wrongLabel.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-        wrongLabel.setForeground(new Color(231, 76, 60));
+        wrongLabel.setForeground(new Color(198, 40, 40));
         wrongLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         centerPanel.add(wrongLabel);
         centerPanel.add(Box.createVerticalStrut(5));
 
         skippedLabel = new JLabel();
         skippedLabel.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-        skippedLabel.setForeground(new Color(241, 196, 15));
+        skippedLabel.setForeground(new Color(255, 160, 0));
         skippedLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         centerPanel.add(skippedLabel);
         centerPanel.add(Box.createVerticalStrut(20));

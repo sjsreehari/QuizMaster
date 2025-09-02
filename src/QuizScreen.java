@@ -23,12 +23,12 @@ public class QuizScreen extends JPanel {
     public QuizScreen(MainApp mainApp) {
         this.mainApp = mainApp;
         setLayout(new BorderLayout(20, 20));
-        setBackground(new Color(36, 41, 47));
+        setBackground(new Color(248, 249, 251));
 
         // Question Label
         questionLabel = new JLabel("Question will appear here", SwingConstants.CENTER);
         questionLabel.setFont(new Font("Segoe UI", Font.BOLD, 20));
-        questionLabel.setForeground(Color.WHITE);
+        questionLabel.setForeground(new Color(32, 33, 36));
         questionLabel.setBorder(BorderFactory.createEmptyBorder(16,16,0,16));
         add(questionLabel, BorderLayout.NORTH);
 
@@ -38,8 +38,8 @@ public class QuizScreen extends JPanel {
         add(center, BorderLayout.CENTER);
 
         RoundedPanel optionsPanel = new RoundedPanel();
-        optionsPanel.setLayout(new GridLayout(5, 1, 10, 10));
-        optionsPanel.setPreferredSize(new Dimension(520, 260));
+        optionsPanel.setLayout(new GridLayout(6, 1, 8, 8));
+        optionsPanel.setPreferredSize(new Dimension(520, 240));
         options = new JRadioButton[4];
         optionGroup = new ButtonGroup();
 

@@ -27,8 +27,8 @@ public class RoundedButton extends JButton {
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         boolean hover = getModel().isRollover();
         boolean pressed = getModel().isPressed();
-        Color c1 = new Color(72, 61, 139);
-        Color c2 = new Color(123, 104, 238);
+        Color c1 = new Color(33, 150, 243);
+        Color c2 = new Color(30, 136, 229);
         if (hover) {
             c1 = c1.brighter();
             c2 = c2.brighter();

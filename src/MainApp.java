@@ -12,7 +12,7 @@ public class MainApp extends JFrame {
     public MainApp() {
         setTitle("Online Quiz Application");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(600, 500);
+        setSize(640, 520);
         setLocationRelativeTo(null);
         setResizable(false);
 

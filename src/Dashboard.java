@@ -4,11 +4,11 @@ import java.awt.*;
 public class Dashboard extends JPanel {
     public Dashboard(MainApp app) {
         setLayout(new BorderLayout());
-        setBackground(new Color(36, 41, 47));
+        setBackground(new Color(248, 249, 251));
 
         JLabel title = new JLabel("Quiz Dashboard", SwingConstants.CENTER);
         title.setFont(new Font("Segoe UI", Font.BOLD, 28));
-        title.setForeground(Color.WHITE);
+        title.setForeground(new Color(32, 33, 36));
         title.setBorder(BorderFactory.createEmptyBorder(30,0,10,0));
         add(title, BorderLayout.NORTH);
 
@@ -18,7 +18,7 @@ public class Dashboard extends JPanel {
 
         RoundedPanel btnPanel = new RoundedPanel();
         btnPanel.setLayout(new GridLayout(2,2,20,20));
-        btnPanel.setPreferredSize(new Dimension(480, 280));
+        btnPanel.setPreferredSize(new Dimension(480, 260));
 
         JButton startBtn = new RoundedButton("Start Quiz");
         startBtn.setToolTipText("Click to start quiz");

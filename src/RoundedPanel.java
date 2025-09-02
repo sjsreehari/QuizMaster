@@ -3,11 +3,11 @@ import java.awt.*;
 
 public class RoundedPanel extends JPanel {
     private int cornerRadius = 24;
-    private Color backgroundColor = new Color(255, 255, 255, 235);
+    private Color backgroundColor = new Color(255, 255, 255);
 
     public RoundedPanel() {
         setOpaque(false);
-        setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        setBorder(BorderFactory.createEmptyBorder(16, 16, 16, 16));
     }
 
     public void setCornerRadius(int radius) { this.cornerRadius = radius; repaint(); }
