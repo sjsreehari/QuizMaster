@@ -46,7 +46,8 @@ public class QuizScreen extends JPanel {
         for (int i = 0; i < 4; i++) {
             options[i] = new JRadioButton();
             options[i].setFont(new Font("Segoe UI", Font.PLAIN, 16));
-            options[i].setBackground(new Color(0, 0, 0, 0));
+            options[i].setOpaque(true);
+            options[i].setBackground(Color.WHITE);
             optionGroup.add(options[i]);
             optionsPanel.add(options[i]);
         }
@@ -54,6 +55,8 @@ public class QuizScreen extends JPanel {
         progressBar = new JProgressBar(0, questions.length);
         progressBar.setValue(1);
         progressBar.setStringPainted(true);
+        progressBar.setBackground(Color.WHITE);
+        progressBar.setForeground(new Color(33,150,243));
         optionsPanel.add(progressBar);
 
         GridBagConstraints gbc = new GridBagConstraints();
