@@ -82,9 +82,19 @@ public class ResultScreen extends JPanel {
             }
         });
 
+        JButton backBtn = new RoundedButton("Back to Dashboard");
+        backBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                app.showScreen("Dashboard");
+            }
+        });
+
         centerPanel.add(retryBtn);
         centerPanel.add(Box.createVerticalStrut(10));
         centerPanel.add(exitBtn);
+        centerPanel.add(Box.createVerticalStrut(10));
+        centerPanel.add(backBtn);
 
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0; gbc.gridy = 0; gbc.weightx = 1; gbc.weighty = 1;

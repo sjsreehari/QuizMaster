@@ -44,11 +44,11 @@ public class Dashboard extends JPanel {
             }
         });
 
-        JButton exitBtn = new RoundedButton("Exit");
+        JButton exitBtn = new RoundedButton("Logout");
         exitBtn.setToolTipText("Exit application");
         exitBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent e) {
-                System.exit(0);
+                app.showScreen("Login");
             }
         });
 

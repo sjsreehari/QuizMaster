@@ -62,15 +62,29 @@ public class QuizScreen extends JPanel {
 
         // Buttons
         JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 20));
+        buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 16, 16));
         buttonPanel.setOpaque(false);
-        buttonPanel.setBorder(BorderFactory.createEmptyBorder(10, 0, 20, 0));
+        buttonPanel.setBorder(BorderFactory.createEmptyBorder(10, 0, 16, 0));
+
+        JButton backBtn = new RoundedButton("Back");
+        backBtn.setToolTipText("Return to dashboard");
+        backBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int res = JOptionPane.showConfirmDialog(QuizScreen.this, "Exit quiz and return to Dashboard?", "Confirm", JOptionPane.YES_NO_OPTION);
+                if (res == JOptionPane.YES_OPTION) {
+                    resetQuiz();
+                    mainApp.showScreen("Dashboard");
+                }
+            }
+        });
 
         skipButton = new RoundedButton("Skip");
         skipButton.setToolTipText("Skip this question");
         nextButton = new RoundedButton("Next");
         nextButton.setToolTipText("Submit answer and go next");
 
+        buttonPanel.add(backBtn);
         buttonPanel.add(skipButton);
         buttonPanel.add(nextButton);
         add(buttonPanel, BorderLayout.SOUTH);
