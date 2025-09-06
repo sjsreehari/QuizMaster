@@ -13,14 +13,14 @@ public class ResultScreen extends JPanel {
         setLayout(new BorderLayout());
         setBackground(new Color(248, 249, 251));
 
-        // Title
+    // Main UI Section
         JLabel title = new JLabel("Quiz Result", SwingConstants.CENTER);
         title.setFont(new Font("Segoe UI", Font.BOLD, 28));
         title.setForeground(new Color(32, 33, 36));
         title.setBorder(BorderFactory.createEmptyBorder(30,0,10,0));
         add(title, BorderLayout.NORTH);
 
-        // Center panel for result details and buttons
+    // Main UI Section
         JPanel centerWrap = new JPanel(new GridBagLayout());
         centerWrap.setOpaque(false);
         add(centerWrap, BorderLayout.CENTER);
@@ -63,17 +63,17 @@ public class ResultScreen extends JPanel {
         centerPanel.add(skippedLabel);
         centerPanel.add(Box.createVerticalStrut(20));
 
-        // Retry Button
         retryBtn = new RoundedButton("Retry Quiz");
         retryBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
         retryBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent e) {
                 app.getQuizScreen().resetQuiz();
                 app.showScreen("Quiz");
+                app.revalidate();
+                app.repaint();
             }
         });
 
-        // Exit Button
         exitBtn = new RoundedButton("Exit");
         exitBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
         exitBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -87,26 +87,30 @@ public class ResultScreen extends JPanel {
         backBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent e) {
                 app.showScreen("Dashboard");
+                app.revalidate();
+                app.repaint();
             }
         });
 
-        centerPanel.add(retryBtn);
-        centerPanel.add(Box.createVerticalStrut(10));
-        centerPanel.add(exitBtn);
-        centerPanel.add(Box.createVerticalStrut(10));
-        centerPanel.add(backBtn);
+        JPanel btnRow = new JPanel();
+        btnRow.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 0));
+        btnRow.setOpaque(false);
+        btnRow.add(retryBtn);
+        btnRow.add(backBtn);
+        btnRow.add(exitBtn);
+        centerPanel.add(btnRow);
 
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0; gbc.gridy = 0; gbc.weightx = 1; gbc.weighty = 1;
         centerWrap.add(centerPanel, gbc);
 
-        // Dummy leaderboard at bottom
+    // Main UI Section
         String[] columns = {"Username", "Score"};
         Object[][] data = {
                 {"Alice", 9},
                 {"Bob", 8},
                 {"Charlie", 7},
-                {"You", 0}  // Will update dynamically
+                {"You", 0}
         };
         leaderboard = new JTable(data, columns);
         leaderboard.setFont(new Font("Segoe UI", Font.PLAIN, 14));
@@ -119,7 +123,7 @@ public class ResultScreen extends JPanel {
         add(leaderboardScroll, BorderLayout.SOUTH);
     }
 
-    // ✅ Method to set quiz result (matches QuizScreen call)
+    // Main Logic Section
     public void setResult(int score, int total, int[] userAnswers, Question[] questions, int skipped) {
         scoreLabel.setText("Your Score: " + score + " / " + total);
 
@@ -135,7 +139,6 @@ public class ResultScreen extends JPanel {
 
         emojiLabel.setText(score >= total * 0.6 ? "\uD83D\uDE0E Pass!" : "\uD83D\uDE22 Fail");
 
-        // Update leaderboard dynamically
         leaderboard.setValueAt(score, 3, 1);  // Update 'You' row
     }
 }

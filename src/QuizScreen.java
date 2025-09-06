@@ -13,7 +13,6 @@ public class QuizScreen extends JPanel {
     private int score = 0;
     private JProgressBar progressBar;
 
-    // Sample questions (you can later load from SQL or file)
     private String[][] questions = {
             {"What is the capital of France?", "Paris", "London", "Berlin", "Rome", "Paris"},
             {"Which language runs in a web browser?", "Java", "C", "Python", "JavaScript", "JavaScript"},
@@ -25,14 +24,12 @@ public class QuizScreen extends JPanel {
         setLayout(new BorderLayout(20, 20));
         setBackground(new Color(248, 249, 251));
 
-        // Question Label
         questionLabel = new JLabel("Question will appear here", SwingConstants.CENTER);
         questionLabel.setFont(new Font("Segoe UI", Font.BOLD, 20));
         questionLabel.setForeground(new Color(32, 33, 36));
         questionLabel.setBorder(BorderFactory.createEmptyBorder(16,16,0,16));
         add(questionLabel, BorderLayout.NORTH);
 
-        // Options
         JPanel center = new JPanel(new GridBagLayout());
         center.setOpaque(false);
         add(center, BorderLayout.CENTER);
@@ -63,7 +60,6 @@ public class QuizScreen extends JPanel {
         gbc.gridx = 0; gbc.gridy = 0; gbc.weightx = 1; gbc.weighty = 1;
         center.add(optionsPanel, gbc);
 
-        // Buttons
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 16, 16));
         buttonPanel.setOpaque(false);
@@ -92,7 +88,6 @@ public class QuizScreen extends JPanel {
         buttonPanel.add(nextButton);
         add(buttonPanel, BorderLayout.SOUTH);
 
-        // Button Actions
         nextButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -123,10 +118,9 @@ public class QuizScreen extends JPanel {
                 progressBar.setString("Question " + (currentQuestionIndex + 1) + " of " + questions.length);
             }
         } else {
-            // Finished quiz -> show results
             int total = questions.length;
             int[] userAnswers = new int[total];
-            for (int i = 0; i < total; i++) userAnswers[i] = -2; // unknown for demo
+            for (int i = 0; i < total; i++) userAnswers[i] = -2;
             Question[] qs = new Question[total];
             for (int i = 0; i < total; i++) {
                 String[] opts = {questions[i][1], questions[i][2], questions[i][3], questions[i][4]};
@@ -141,9 +135,7 @@ public class QuizScreen extends JPanel {
         }
     }
 
-    // (removed obsolete setScore wrapper)
 
-    // Added for retry functionality
     public void resetQuiz() {
         currentQuestionIndex = 0;
         score = 0;
